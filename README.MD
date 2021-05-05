@@ -1,45 +1,142 @@
-Name: Mena Bebawy
+I created a spell checker that takes in a given text and finds the incorrect words and proposes possible corrections.
 
-Hashing with linear and quadratic probing:
-I created linear_probing.h in order to implement linear probing.
-It was different than quadratic probing due to the offset which was always 1.
+I first built a dictionary to check the text againts using a hashtable as it has the fastest find/insert time O(1), so it was the most 
+appropriate data structure to use.
+The spell checker reads in the text line by line and word by word and checks if each word is in the dictionary which is created
+using a hashtable. If it is not in the dictionary, it tries different combinations of the word:
+1. Adding one character in any possible position
+2. Removing one character from the word in any possible position
+3. Swapping adjacent characters in the word
+4. Swapping each charachter with all the alphabet
 
-I created a stream to read the given file and insert all the words into a hash table.
+It lets the user know on which line the incorrect word is at, and which word number.
+The spel checker also lets the user know how many incorrect words there are.
 
-I also created accessor functions inside linear_probing.h, quadratic_probing.h, and double_hashing.h to
-get the number of elements, table size, number of probes, and number of collisions.
+Different Types of Hashing:
+I experimented with and tested different types of hashing (linear, quadratic, and double) to see which would work best for
+my dictionary. I found double hashing to produce the best results with the the lowest load factor (lambda) and the least number of 
+probes to insert/find a word in the table.
 
-I created another ifstream to ready query_words.txt and check if each word in it is in words.txt
+The following is an example:
+```
+The Hill We Climb, by Amanda Gorman
 
-Double hashing:
-I implemented double_hashing.txt using a double hashing fucntion inside of FindPos().
-I also created an accessor function to return the r-value that was used.
-I also created a PreviousPrime() function inside of double_hashing.h in order to use for the R value.
-Which is the the biggest prime number that is smaller than the table size.
+When day comes we ask ourselves,
+where can we find light in this never ending shade?
+The loss we carry,
+a sea we must wade.
+We've braved the belly of the beast,
+We've learned that quiet isn't always peace,
+and the norms and notions
+of what just is
+isn't always just ice.
+And yet the dawn is ours
+before we knew it.
+Somehow we do it.
+Somehow we've weathered and witnessed
+a nation that isn't broken,
+but simply unfinished.
+We the successors of a country and a time
+where a skinny Black girl
+descended from slaves and raised by a single mother
+can dream of becoming president
+only to find herself recitiong for one.
+And yes we are far from polished.
+Far from pristine.
+But that doesn't mean we are
+striving to form a union that is perfect.
+We are striving to forge a union with purpose,
+to compose a country committed to all cultures, colors, characters and
+conditions of man.
+And so we lift our gazes not to what stands between us,
+but what stands before us.
+We close the divide because we know, to put our future first,
+we must first put our diffrences aside.
+We lay down our arms
+so we can reach out our arms
+to one another.
+We seek harm to none and harmony for all.
+Let the globe, if nothing else, say this is true,
+that even as we grieved, we grew,
+that even as we hurt, we hoped,
+that even as we tired, we tried,
+that we'll forever be tied together, victorious.
+Not because we will never again know defeat,
+but because we will never again sow division.
+Scripture tells us to envision
+that everyone shall sit under their own vine and fig tree
+and no one shall make them afraid.
+If we're to live up to our own time,
+then victory won't lie in the blade.
+But in all the bridges we've made,
+that is the promise to glade,
+the hill we climbx.
+If only we dare.
+It's because being American is more than a pride we inherit,
+it's the past we step into
+and how we repair it.
+We've seen a force that would shatter our nation
+rather than share it.
+Would destroy our country if it meant delaying democracy.
+And this effort very nearly succeeded.
+But while democracy can be pseriodically delayed,
+it can never be permanently defeated.
+In this truth,
+in this faith we trust.
+For while we have our eyes on the future,
+history has its eyes on us.
+This is the era of just redepmtion
+we feared at its inception.
+We did not feel prepared to be the heirs
+of such a terrifying hour
+but within it we found the power
+to author a new chapter.
+To offer hope and laughter to ourselves.
+So while once we asked,
+how could we possibly prevail over catastrophe?
+Now we assert,
+How could catastrophe possibly prevail over us?
+We will not march back to what was,
+but move to what shall be.
+A country that is bruised but whole,
+benevolent but bold,
+fierce and free.
+We will not be turned around
+or interrupted by intimidation,
+because we know our inaction and inertia
+will be the inheritunce of the next generation.
+Our blunders become their burdens.
+But one thing is certain,
+If we merge mercy with might,
+and might with right,
+then love becomes our legacy,
+and change our children's birthright.
+So let us leave behind a ocuntry
+better than the one we were left with.
+Every breath from my chest,
+we will raise this wounded world into a wondrous one.
+We will rise from the hills of the west.
+We will rise from the windswept northeast,
+where our forefathers first realized revolution.
+We will rise from the cities of the midwestern states.
+We will rise from the sunbaked south.
+We will rebuil, reconcile and recover.
+And every known nook of our nation and
+every corner called our country,
+our people diverte and beautiful will emerge,
+battered and beatiful.
+When day comes we step out of the shade,
+aflame and unafraid,
+the new dawn blooms as we free it.
+For there is always light,
+if only we're brave enough to see it.
+If only we're brave enough to be it.
+```
 
-Spell checker:
-I implemented make dictionary which takes in a file, reads it word by word, and creates a dictionary of these words.
-I then implemented spellchecker whcih reads a file word by word, and lets the user know if the word is correct or incorrect.
-In order to do that, it calls 2 functions Clean() which cleans the given word (i.e. removes all non alphabet charachters
-before and after the word + sets all letters to lowercase) and correctWord() which tries cases A, B, and C and checks if
-the corrected word is in the dictionary.
+![image](https://user-images.githubusercontent.com/13136399/117094762-a568a200-ad32-11eb-9310-1e0761af5cd3.png)
+
 
 ---
 
-iii. Complete instructions of how to run your program(s):
-
-To compile on terminal type:  
-make clean  
-make all  
-
-To run:  
-make run1linear: to test linear probing  
-make run1quadratic: to test quadratic probing  
-make run1double: to test double hashing  
-make run2short: to test the spell checker with document1_short.txt  
-make run2: to test the spell checker with document1.txt  
-
----
-
-Sources for linear probing:
+Sources for linear probing:  
 Class Textbook
