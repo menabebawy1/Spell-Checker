@@ -28,16 +28,16 @@ the corrected word is in the dictionary.
 
 iii. Complete instructions of how to run your program(s):
 
-To compile on terminal type:
-make clean 
-make all 
+To compile on terminal type:  
+make clean  
+make all  
 
-To run:
-make run1linear: to test linear probing 
-make run1quadratic: to test quadratic probing 
-make run1double: to test double hashing 
-make run2short: to test the spell checker with document1_short.txt 
-make run2: to test the spell checker with document1.txt 
+To run:  
+make run1linear: to test linear probing  
+make run1quadratic: to test quadratic probing  
+make run1double: to test double hashing  
+make run2short: to test the spell checker with document1_short.txt  
+make run2: to test the spell checker with document1.txt  
 
 ---
 
