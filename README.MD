@@ -138,5 +138,6 @@ The program produces the following result:
 
 ---
 
-Sources for linear probing:  
-Class Textbook
+Sources for linear probing:    
+Data Structures and Algorithm Analysis in C++ 
+Book by Mark Allen Weiss
