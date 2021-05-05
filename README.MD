@@ -132,7 +132,7 @@ For there is always light,
 if only we're brave enough to see it.
 If only we're brave enough to be it.
 ```
-The program produces the following result:
+The program produces the following result:  
 ![image](https://user-images.githubusercontent.com/13136399/117094762-a568a200-ad32-11eb-9310-1e0761af5cd3.png)
 
 
